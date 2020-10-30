@@ -39,9 +39,15 @@ multreg_mod_interaction<-lm(Cogniton~Years*Hipp,data=FootballBrain)
 
 ## Introduction
 
+[EMBED VIDEO]
+
+In the video above I explain more generally about models, beyond just the simple straight line linear regression model. The simple linear regression model is nice, and has some useful applications, but it is very rarely sufficient to build a comprehensive model to understand our questions and data in full. Although the statistics underlying more advanced methodologies can start to become increasingly complicated, the R code to produce these models does not increase in complexity to anywhere near the same extent!
+
+In Part II of this workbook we will introduce some extensions to the simple linear model, but considering multiple variables and how to deal with categorical variables, rather than just numeric variables.
+
 ## Multiple linear regression
 
-But what about the rest of our data? In particular what about the `Cogniton` variable, representing the brain function rather than the brain size. A value of 100 here indicates a respondent was in the top percentile for reaction times. The higher the value the better the brain function. 
+So let's start to consider the rest of the data from Part 1. In particular what about the `Cogniton` variable, representing the brain function rather than the brain size. A value of 100 here indicates a respondent was in the top percentile for reaction times. The higher the value the better the brain function. 
 Note that this variable is only collected for some of the football players, for others it is not collected and for non-football players it is not collected.
 
 I may be interested now in both whether there is a link between `Hipp` and `Cognition`, (does brain size affect brain function?) but also about whether there is a link between `Years` and `Cognition` (does increased football playing affect brain function?).
