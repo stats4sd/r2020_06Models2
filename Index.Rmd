@@ -39,18 +39,18 @@ multreg_mod_interaction<-lm(Cogniton~Years*Hipp,data=FootballBrain)
 
 ## Introduction
 
-[EMBED VIDEO]
+![](https://youtu.be/AYLY10wk6PY)
 
-In the video above I explain more generally about models, beyond just the simple straight line linear regression model. The simple linear regression model is nice, and has some useful applications, but it is very rarely sufficient to build a comprehensive model to understand our questions and data in full. Although the statistics underlying more advanced methodologies can start to become increasingly complicated, the R code to produce these models does not increase in complexity to anywhere near the same extent!
+In the video above I explain more generally about models, beyond just the simple straight line linear regression model. The simple straight line linear regression model is nice, and has lots of useful applications. But in many cases won't be sufficient to build a comprehensive model to understand our questions and data in full. Although the statistics underlying more advanced methodologies can start to become increasingly complicated, the R code to produce these models does not increase in complexity to anywhere near the same extent!
 
-In Part II of this workbook we will introduce some extensions to the simple linear model, but considering multiple variables and how to deal with categorical variables, rather than just numeric variables.
+In Part II of this workbook we will introduce some extensions to the simple linear model, but now considering multiple variables and how to deal with categorical variables, rather than just numeric variables.
 
 ## Multiple linear regression
 
 So let's start to consider the rest of the data from Part 1. In particular what about the `Cogniton` variable, representing the brain function rather than the brain size. A value of 100 here indicates a respondent was in the top percentile for reaction times. The higher the value the better the brain function. 
 Note that this variable is only collected for some of the football players, for others it is not collected and for non-football players it is not collected.
 
-I may be interested now in both whether there is a link between `Hipp` and `Cognition`, (does brain size affect brain function?) but also about whether there is a link between `Years` and `Cognition` (does increased football playing affect brain function?).
+I may be interested now in both whether there is a link between `Hipp` and `Cogniton`, (does brain size affect brain function?) but also about whether there is a link between `Years` and `Cogniton` (does increased football playing affect brain function?).
 
 ### Seperate Models?
 
@@ -141,7 +141,7 @@ summary(multreg_mod_interaction)
 ```
 In this model we can now see that none of our individual model terms are statistically significant. 
 
-However the overall model is highly significant, as we can see from the F-test at the bottom of the output, and the R square value is quite high.
+However the overall model is highly significant, as we can see from the F-test at the bottom of the output (p=2.638e-05), and the R square value is quite high.
 
 So how exactly can this happen? It is likely we have run into an issue of either over-fitting the model or having variables which are extremely highly correlated. In these cases the data we have cannot support the complexity of the model we are trying to fit. Making predictions or interpretations about the effects of the individual variables is likely to give very misleading results.
 
@@ -158,7 +158,9 @@ glance(multreg_mod_interaction)
 ```
 Note that if we just wanted the AIC or BIC values, and no other output, there are the standalone functions `AIC()` and `BIC()`, which just need the name of the model as the input.
 
-When comparing models from the same data, we are looking for lower values of AIC and BIC, which will indicate a better model fit. From the output both the AIC and BIC are larger for the model containing the interaction variable than the model without the interaction. Since larger values are bad, this indicates the model without the interaction should be preferred. 
+When comparing models from the same data, the lower the value of the AIC and BIC, the better the model fit. 
+
+From the output both the AIC and BIC are larger for the model containing the interaction variable than the model without the interaction. Since larger values are bad, this indicates the model without the interaction should be preferred. 
 
 You can read more about these goodness-of-fit statistics [here](https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781118856406.app5). 
 
